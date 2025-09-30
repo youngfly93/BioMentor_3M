@@ -16,7 +16,6 @@ const elements = {
     attachBtn: document.getElementById('attachBtn'),
     fileInput: document.getElementById('fileInput'),
     newChatBtn: document.getElementById('newChatBtn'),
-    featureButtons: document.querySelectorAll('.feature-btn'),
     sidebar: document.getElementById('sidebar'),
     chatHistory: document.getElementById('chatHistory'),
     mobileMenuBtn: document.getElementById('mobileMenuBtn'),
@@ -506,32 +505,6 @@ function initializeEventListeners() {
         elements.mobileOverlay.addEventListener('click', closeMobileSidebar);
     }
     
-    // 监听功能按钮
-    elements.featureButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const feature = btn.querySelector('span').textContent;
-            let prompt = '';
-            
-            switch (feature) {
-                case 'Write':
-                    prompt = '帮我写一篇';
-                    break;
-                case 'Learn':
-                    prompt = '教我学习';
-                    break;
-                case 'Code':
-                    prompt = '帮我编写代码';
-                    break;
-                case 'Life stuff':
-                    prompt = '给我一些生活建议';
-                    break;
-            }
-            
-            elements.messageInput.value = prompt;
-            elements.messageInput.focus();
-            autoResizeTextarea();
-        });
-    });
 }
 
 // 初始化应用
